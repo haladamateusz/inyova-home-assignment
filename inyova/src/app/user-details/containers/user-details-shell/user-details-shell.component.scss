@@ -1,0 +1,64 @@
+::ng-deep .mat-form-field-infix {
+  border-top: 0 !important;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  h1 {
+    font-size: 32px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+
+  p {
+    margin-bottom: 0;
+
+    &:not(:first-of-type, :last-of-type) {
+      margin-top: 10px;
+    }
+  }
+
+  .form-card {
+    background: white;
+    text-align: left;
+    width: 390px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+
+    .reduce-width {
+      width: 64px !important;
+      margin-right: 24px;
+    }
+
+    mat-radio-button {
+      margin: 10px 0;
+      &:last-of-type {
+        margin-left: 10px;
+      }
+    }
+  }
+
+  button {
+    background: #2F2C26;
+    width: 100%;
+    border: none;
+    color: white;
+    padding: 15px 24px;
+    margin-top: 20px;
+    font-weight: bold;
+  }
+
+  .bottom {
+    margin-top: 15px;
+    display: flex;
+    padding-left: 10px;
+    .bottom-text {
+      padding: 10px;
+    }
+  }
+}
