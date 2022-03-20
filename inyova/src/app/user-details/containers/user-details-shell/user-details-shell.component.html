@@ -3,7 +3,7 @@
     <h1>Personal details</h1>
     <div class="form-card">
       <form [formGroup]="form">
-        <p>Gender</p>
+        <p [class.invalid]="form.controls['day'].touched && !form.controls['gender'].value">Gender</p>
         <mat-radio-group formControlName="gender">
           <mat-radio-button value="M">Male</mat-radio-button>
           <mat-radio-button value="F">Female</mat-radio-button>
@@ -37,7 +37,7 @@ form.controls['year'].touched && !form.controls['year'].value">Date of birth</p>
       </form>
     </div>
 
-    <button>Continue</button>
+    <button (click)="saveForm()">Continue</button>
 
     <div class="bottom">
       <img src="/assets/images/Shape.svg" alt="">

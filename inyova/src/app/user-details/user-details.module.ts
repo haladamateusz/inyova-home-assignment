@@ -6,6 +6,8 @@ import { UserDetailsShellComponent } from './containers/user-details-shell/user-
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from "@angular/material/input";
 import { ReactiveFormsModule } from "@angular/forms";
+import { FeatureKey, reducer } from "../store/reducer";
+import { StoreModule } from "@ngrx/store";
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { ReactiveFormsModule } from "@angular/forms";
     MatRadioModule,
     MatFormFieldModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StoreModule.forFeature(FeatureKey, reducer),
   ]
 })
 export class UserDetailsModule {
