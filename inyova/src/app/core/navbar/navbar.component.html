@@ -1,0 +1,23 @@
+<div class="wrapper">
+  <div class="left">
+    <div class="logo">
+      <img src="assets/images/inyova.svg" alt="inyova_logo">
+      <img src="assets/images/Windmill.svg" alt="Windmill">
+    </div>
+    <nav mat-tab-nav-bar>
+      <a mat-tab-link *ngFor="let link of links"
+         (click)="activeLink = link.label"
+         [active]="activeLink == link.label"
+         [class.active]="activeLink == link.label">
+        {{link.label}} </a>
+    </nav>
+  </div>
+  <div class="right">
+    <div class="right-select">
+      <img src="assets/images/Tree_24dp.svg" alt="tree">
+      <span>Inyova investment</span>
+      <mat-icon>keyboard_arrow_down</mat-icon>
+    </div>
+    <mat-icon>menu</mat-icon>
+  </div>
+</div>
