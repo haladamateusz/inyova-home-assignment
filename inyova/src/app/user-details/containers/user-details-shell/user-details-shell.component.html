@@ -2,35 +2,39 @@
   <div>
     <h1>Personal details</h1>
     <div class="form-card">
-      <p>Gender</p>
-      <mat-radio-group>
-        <mat-radio-button value="M">Male</mat-radio-button>
-        <mat-radio-button value="F">Female</mat-radio-button>
-      </mat-radio-group>
-      <p>First name</p>
-      <mat-form-field>
-        <input matInput>
-      </mat-form-field>
-      <p>Last name</p>
-      <mat-form-field>
-        <input matInput>
-      </mat-form-field>
-      <div>
-        <p>Date of birth</p>
-        <mat-form-field class="reduce-width">
-          <input matInput>
+      <form [formGroup]="form">
+        <p>Gender</p>
+        <mat-radio-group formControlName="gender">
+          <mat-radio-button value="M">Male</mat-radio-button>
+          <mat-radio-button value="F">Female</mat-radio-button>
+        </mat-radio-group>
+        <p [class.invalid]="form.controls['firstname'].touched && !form.controls['firstname'].value">First name</p>
+        <mat-form-field [floatLabel]="'never'" [hideRequiredMarker]="true">
+          <input formControlName="firstname" matInput placeholder="First name (as shown in passport / ID)">
         </mat-form-field>
-        <mat-form-field class="reduce-width">
-          <input matInput>
+        <p [class.invalid]="form.controls['lastname'].touched && !form.controls['lastname'].value">Last name</p>
+        <mat-form-field [floatLabel]="'never'" [hideRequiredMarker]="true">
+          <input formControlName="lastname" matInput placeholder="First name (as shown in passport / ID)">
         </mat-form-field>
-        <mat-form-field class="reduce-width">
-          <input matInput>
+        <div>
+          <p [class.invalid]="form.controls['day'].touched && !form.controls['day'].value ||
+form.controls['month'].touched && !form.controls['month'].value ||
+form.controls['year'].touched && !form.controls['year'].value">Date of birth</p>
+          <mat-form-field class=" reduce-width" [floatLabel]="'never'" [hideRequiredMarker]="true">
+            <input formControlName="day" placeholder="Day" matInput>
+          </mat-form-field>
+          <mat-form-field class="reduce-width" [floatLabel]="'never'" [hideRequiredMarker]="true">
+            <input formControlName="month" placeholder="Month" matInput>
+          </mat-form-field>
+          <mat-form-field class="reduce-width" [floatLabel]="'never'" [hideRequiredMarker]="true">
+            <input formControlName="year" placeholder="Year" matInput>
+          </mat-form-field>
+        </div>
+        <p [class.invalid]="form.controls['nationality'].touched && !form.controls['nationality'].value">Nationality</p>
+        <mat-form-field [floatLabel]="'never'" [hideRequiredMarker]="true">
+          <input formControlName="nationality" placeholder="Nationality" matInput>
         </mat-form-field>
-      </div>
-      <p>Nationality</p>
-      <mat-form-field>
-        <input matInput>
-      </mat-form-field>
+      </form>
     </div>
 
     <button>Continue</button>

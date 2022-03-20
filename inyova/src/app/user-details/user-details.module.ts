@@ -5,6 +5,7 @@ import { UserDetailsRoutingModule } from './user-details-routing.module';
 import { UserDetailsShellComponent } from './containers/user-details-shell/user-details-shell.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from "@angular/material/input";
+import { ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { MatInputModule } from "@angular/material/input";
     UserDetailsRoutingModule,
     MatRadioModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    ReactiveFormsModule
   ]
 })
 export class UserDetailsModule {
