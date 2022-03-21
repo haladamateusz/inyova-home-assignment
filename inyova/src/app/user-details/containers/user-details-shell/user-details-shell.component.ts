@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from "@angular/forms";
 import { Store } from "@ngrx/store";
 import { loadData, updateData } from "../../../store/actions";
+import { MatSnackBar } from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-user-details-shell',
@@ -10,7 +11,9 @@ import { loadData, updateData } from "../../../store/actions";
 })
 export class UserDetailsShellComponent implements OnInit {
   form: FormGroup;
-  constructor(private store: Store) { }
+
+  constructor(private store: Store, private snackBar: MatSnackBar) {
+  }
 
   ngOnInit(): void {
     this.prepareForm();
@@ -38,7 +41,18 @@ export class UserDetailsShellComponent implements OnInit {
   }
 
   saveForm(): void {
-    this.store.dispatch(updateData(this.form.getRawValue()));
+    const invalidField = Object.values(this.form.controls).find(control => !control.value);
+    if (invalidField) {
+      this.snackBar.open('Some fields are missing', '', {
+          duration: 1000,
+          horizontalPosition: 'right',
+          verticalPosition: 'bottom',
+          panelClass: 'info'
+        }
+      )
+    } else {
+      this.store.dispatch(updateData(this.form.getRawValue()));
+    }
   }
 
 }

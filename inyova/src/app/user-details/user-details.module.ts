@@ -8,6 +8,7 @@ import { MatInputModule } from "@angular/material/input";
 import { ReactiveFormsModule } from "@angular/forms";
 import { FeatureKey, reducer } from "../store/reducer";
 import { StoreModule } from "@ngrx/store";
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { StoreModule } from "@ngrx/store";
     MatRadioModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSnackBarModule,
     ReactiveFormsModule,
     StoreModule.forFeature(FeatureKey, reducer),
   ]
